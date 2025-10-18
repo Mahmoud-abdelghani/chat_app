@@ -34,8 +34,7 @@ class _LoginViewState extends State<LoginView> {
       listener: (context, state) {
         if (state is SignInSuccess) {
           Navigator.pushReplacementNamed(context, HomeView.routeName);
-          BlocProvider.of<ProfileCubit>(context).getUserInfo();
-          BlocProvider.of<ChatsCubit>(context).getAllUsers();
+          
         } else if (state is SignInError) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

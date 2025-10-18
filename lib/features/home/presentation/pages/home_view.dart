@@ -18,9 +18,19 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int selectedIndex = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<ProfileCubit>(context).getUserInfo();
+    BlocProvider.of<ChatsCubit>(context).getAllUsers();
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenSize.init(context);
+
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
